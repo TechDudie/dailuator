@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Dailuator</title>
+        <script src="app.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="top">
+            <h1>Dailuator</h1>
+        </div>
+        <div id="side">
+            <button id="linear">Linear Functions</button>
+            <button id="solve">Solve Expression</button>
+        </div>
+        <div id="calculator">
+            <div id="start_window" class="window" style="display: block;">
+                <h1>Select a calculator to get started!</h1>
+            </div>
+            <div id="linear_window" class="window">
+                <h1>Linear Functions</h1>
+                <pre><input id="include_slope" type="checkbox"> Slope:  <input id="slope" type="number"></pre>
+                <pre>{(<input id="x1" type="number">, <input id="y1" type="number">), (<input id="x2" type="number">, <input id="y2" type="number">)} <button id="linear_solve">Solve</button></pre>
+                <h1 class="label">Point-slope form:&nbsp;&nbsp;</h1><h1 id="point-slope-form" class="equation">...</h1>
+                <br><br>
+                <h1 class="label">Slope-intercept form:&nbsp;&nbsp;</h1><h1 id="slope-intercept-form" class="equation">...</h1>
+                <p class="info">Only the first pair of coordinates are required if slope is enabled.</pre>
+            </div>
+            <div id="solve_window" class="window">
+                <h1>Solve an Expression</h1>
+                <input id="expression" type="text">
+                <button id="expression_solve">Solve</button>
+            </div>
+        </div>
+    </body>
+</html>

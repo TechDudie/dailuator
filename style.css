@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html, body {
+    min-height: 600px;
+    min-width: 800px;
+    height: 600px;
+    width: 800px;
+    max-height: 600px;
+    max-width: 800px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+h1, p {
+    font-family: 'Roboto', sans-serif;
+}
+
+#top {
+    min-height: 50px;
+    min-width: 800px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: #3366ee;
+    background: -moz-linear-gradient(45deg, rgba(27,54,127,1) 0%, rgba(51,102,238,1) 50%, rgba(90,150,255,1) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(27,54,127,1) 0%, rgba(51,102,238,1) 50%, rgba(90,150,255,1) 100%);
+    background: linear-gradient(45deg, rgba(27,54,127,1) 0%, rgba(51,102,238,1) 50%, rgba(90,150,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1b367f",endColorstr="#5a96ff",GradientType=1);
+}
+
+#top > h1 {
+    color: white;
+    text-align: center;
+}
+
+#side {
+    min-height: 540px;
+    min-width: 200px;
+    height: 540px;
+    width: 200px;
+    max-height: 540px;
+    max-width: 200px;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    background-color: #cccccc;
+}
+
+#side > button {
+    min-width: 200px;
+    background-color: #cccccc;
+    border: 0px;
+    border-radius: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    padding: 10px;
+    float: left;
+}
+
+.window {
+    min-height: 540px;
+    min-width: 600px;
+    height: 540px;
+    width: 600px;
+    max-height: 540px;
+    max-width: 600px;
+    position: absolute;
+    top: 60px;
+    left: 200px;
+    padding: 10px;
+    display: none;
+}
+
+.window h1 {
+    margin: 0px;
+}
+
+.info {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+}
+
+/* Linear Functions Panel */
+
+#linear_window > h1 {
+    margin-bottom: 10px;
+}
+
+#linear_window > pre {
+    font-size: 16px;
+}
+
+#linear_window input[type="number"] {
+    width: 50px;
+}
+
+#linear_solve {
+    height: 20px;
+    width: 60px;
+    background-color: #3366ee;
+    border: 0px;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.label {
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 0px;
+}
+
+.equation {
+    font-family: "Times New Roman", Times, serif;
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 0px;
+}
+
+/* Solve Expressions Panel */
+
+#expression {
+    height: 50px;
+    width: 500px;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#expression_solve {
+    height: 50px;
+    width: 75px;
+    background-color: #3366ee;
+    border: 0px;
+    border-radius: 8px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
