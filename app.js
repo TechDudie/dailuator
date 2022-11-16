@@ -32,13 +32,20 @@ function fixFraction(fraction) { // Function to remove redundant nonsense from a
     return returned;
 }
 
+function fixNumber(number) {
+    if (number === "1") {
+        number = "";
+    } else if (number === "-1") {
+        number = "-";
+    }
+    return number;
+}
+
 function solve(input) {
     console.log("Solving " + input);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Button events
-
     // Linear Functions Panel
     $("linear").addEventListener('click', function() {
         hide();
@@ -88,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (y1 > 0) {
             point_slope += "- " + y1.toString();
         }
-        m = slope_sign + fixFraction(slope_num + "/" + slope_denom)
+        m = slope_sign + fixFraction(slope_num + "/" + slope_denom);
         // Will be used later
         a_sign = "";
         if (slope_sign === "") {
@@ -96,11 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         a_num = slope_num;
         a_denom = slope_denom;
-        if (m === "1") {
-            m = "";
-        } else if (m === "-1") {
-            m = "-";
-        }
+        m = fixNumber(m);
         point_slope += " = " + m + "";
         if (x1 < 0) {
             point_slope += "(x + " + Math.abs(x1).toString() + ")";
@@ -147,23 +150,19 @@ document.addEventListener('DOMContentLoaded', function() {
         // Determine LCM
         factor = gcf(a_denom, b_denom);
         lcm = a_denom * b_denom / factor;
-        alert(factor);
-        alert(lcm);
         // Cross-multiply
         a_div = a_denom / lcm;
         b_div = b_denom / lcm;
         a_num = a_num * a_div;
         b_num = b_num * b_div;
-        alert(a_div);
-        alert(b_div);
-        alert(a_num);
-        alert(b_num);
         // Build standard equation
         standard_a = a_sign + a_num
         if (b_sign === "+ ") {
             b_sign = "";
         }
-        standard_c = b_sign + b_num
+        standard_a = fixNumber(standard_a);
+        lcm = fixNumber(lcm);
+        standard_c = b_sign + b_num;
         standard = standard_a + "x + " + lcm + "y = " + standard_c;
         // Show standard equation
         $("standard-form").innerHTML = standard;
@@ -180,4 +179,13 @@ document.addEventListener('DOMContentLoaded', function() {
     $("expression_solve").addEventListener('click', function() {
         solve($("expression").value);
     }, false);
+
+    // Graphing Functions Panel
+    $("graph").addEventListener('click', function() {
+        hide();
+        current_tab = "graph";
+        $("graph_window").style.display = "block";
+        $("graph").style.backgroundColor = "#aaaaaa";
+    }, false);
+    // Make a graphing calculator here
 }, false);
