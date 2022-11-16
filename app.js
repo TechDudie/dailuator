@@ -53,9 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
         y1 = $("y1").value;
         x2 = $("x2").value;
         y2 = $("y2").value;
+        useSlope = $("include_slope").checked;
         // Calculate the slope
         slope_num = y2 - y1;
         slope_denom = x2 - x1;
+        if (useSlope) {
+            slope_num = $("slope").split("/")[0];
+            slope_denom = $("slope").split("/")[1];
+        }
         // Process negatives
         neg_num = 0;
         if (slope_num < 0) {
@@ -84,6 +89,13 @@ document.addEventListener('DOMContentLoaded', function() {
             point_slope += "- " + y1.toString();
         }
         m = slope_sign + fixFraction(slope_num + "/" + slope_denom)
+        // Will be used later
+        a_sign = "";
+        if (slope_sign === "") {
+            a_sign = "-";
+        }
+        a_num = slope_num;
+        a_denom = slope_denom;
         if (m === "1") {
             m = "";
         } else if (m === "-1") {
@@ -102,6 +114,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Recalculate the slope
         slope_num = y2 - y1;
         b_denom = x2 - x1;
+        if (useSlope) {
+            slope_num = $("slope").split("/")[0];
+            b_denom = $("slope").split("/")[1];
+        }
         // Simplify point-slope equation by distribution property
         b_num = slope_num * -x1 + b_denom * y1;
         // Process negatives
@@ -114,9 +130,9 @@ document.addEventListener('DOMContentLoaded', function() {
             neg_denom = 1;
         }
         b_neg = neg_num ^ neg_denom;
-        b_sign = " + ";
+        b_sign = "+ ";
         if (b_neg == 1) {
-            b_sign = " - ";
+            b_sign = "- ";
         }
         b_num = Math.abs(b_num);
         b_denom = Math.abs(b_denom);
@@ -128,6 +144,29 @@ document.addEventListener('DOMContentLoaded', function() {
         slope_intercept = "y = " + m + "x " + b_sign + fixFraction(b_num + "/" + b_denom);
         // Show slope-intercept equation
         $("slope-intercept-form").innerHTML = slope_intercept;
+        // Determine LCM
+        factor = gcf(a_denom, b_denom);
+        lcm = a_denom * b_denom / factor;
+        alert(factor);
+        alert(lcm);
+        // Cross-multiply
+        a_div = a_denom / lcm;
+        b_div = b_denom / lcm;
+        a_num = a_num * a_div;
+        b_num = b_num * b_div;
+        alert(a_div);
+        alert(b_div);
+        alert(a_num);
+        alert(b_num);
+        // Build standard equation
+        standard_a = a_sign + a_num
+        if (b_sign === "+ ") {
+            b_sign = "";
+        }
+        standard_c = b_sign + b_num
+        standard = standard_a + "x + " + lcm + "y = " + standard_c;
+        // Show standard equation
+        $("standard-form").innerHTML = standard;
     }, false);
 
     // Solve Expressions Panel
